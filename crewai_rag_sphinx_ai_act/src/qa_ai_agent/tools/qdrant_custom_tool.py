@@ -33,6 +33,7 @@ Examples
 import os
 from dataclasses import dataclass
 from pathlib import Path
+import re
 from typing import Any, List, Tuple, Type
 
 from crewai import LLM
@@ -292,6 +293,8 @@ def load_docs(
                 continue
 
             docs = loader.load()
+            for doc in docs:
+                doc.metadata["file_type"] = file_type
             documents.extend(docs)
             print(f"Loaded {len(docs)} {file_type} documents")
 
@@ -334,13 +337,31 @@ def chunk_docs(docs: List[Document], settings: ChunkingSettings):
     >>> chunks[0].page_content
     'First chunk content...'
     """
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=settings.chunk_size,
-        chunk_overlap=settings.chunk_overlap,
-        separators=["\n\n", "\n", ". ", "? ", "! ", "; ", ": ", ", ", " ", "", "---"],
-    )
+    # text_splitter = RecursiveCharacterTextSplitter(
+    #     chunk_size=settings.chunk_size,
+    #     chunk_overlap=settings.chunk_overlap,
+    #     separators=["\n\n", "\n", ". ", "? ", "! ", "; ", ": ", ", ", " ", "", "---"],
+    # )
 
-    return text_splitter.split_documents(docs)
+    chunks = []
+
+    md_regex = re.compile(r'(?P<section>#+\s+.+)\n\n*(?P<content>[^#]+)')
+
+    for doc in docs:
+        if doc.metadata.get("file_type") == ".md":
+            matches = md_regex.finditer(doc.page_content)
+            for match in matches:
+                section = match.group("section").strip()
+                content = match.group("content").strip()
+                # add the matched chunk into chunks
+                chunks.append(Document(
+                    page_content=content, 
+                    metadata={
+                        "section": section,
+                    }
+                ))
+
+    return chunks
 
 class EmbeddingModel:
 
@@ -1050,15 +1071,14 @@ class RagTool(BaseTool):
         
         docs = load_docs(docs_path)
         chunks = chunk_docs(docs, chunk_settings)
+        print(f"Chunks:\n{chunks}")
+        input('> ')
         vector_size = self.embedding_model.get_sentence_embedding_dimension()
         self.__recreate_collection_for_rag(qdrant_settings.collection, vector_size)
         vecs = self.embedding_model.embed_documents([c.page_content for c in chunks])
         points = self.__build_points(chunks, vecs)
         self.client.upsert(collection_name=qdrant_settings.collection, points=points, wait=True)
 
-
-    # LLM -("Setto final_k a 5, alpha a 0.1...")-> crewai -({final_k:5, alpha:0.1})->
-    # -> RagTool._run(query, settings) -> retriever -> best_chunks -> LLM
     def _run(self, query: str, settings: RetrieverSettings) -> str:
         """
             Run a retrieval query and return concatenated contents.
@@ -1091,11 +1111,11 @@ class RagTool(BaseTool):
         
         print("Choosen Settings:", settings)
 
-        if settings:
+        if not isinstance(settings, RetrieverSettings):
             retriever_settings = RetrieverSettings(**settings)
         else:
-            retriever_settings = RetrieverSettings()
-            print("WARNING: Using default RetrieverSettings!")
+            retriever_settings = settings
+            # print("WARNING: Using default RetrieverSettings!")
         
         best_chunks = self.__hybrid_search(
             settings=retriever_settings,

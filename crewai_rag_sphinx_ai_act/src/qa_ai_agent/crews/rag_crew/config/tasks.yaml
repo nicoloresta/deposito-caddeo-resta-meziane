@@ -8,6 +8,18 @@ rag_prompt_task:
     A rewritten prompt optimized for document retrieval.
   agent: rag_prompt_rewriter
 
+rag_define_search_params_task:
+  description: >
+    Define the search parameters to be used for retrieving documents
+    from the local collection to answer the following query:
+    {query}
+  expected_output: >
+    A set of search parameters including but not limited to:
+    - Number of documents to retrieve
+    - Relevance threshold
+    - Any specific filters or criteria
+  agent: rag_define_search_params
+
 rag_retrieval_task:
   description: >
     Retrieve the most relevant information from the local document
@@ -16,4 +28,5 @@ rag_retrieval_task:
     The most relevant passages or facts from the local files if any are found, otherwise return "0".
   agent: rag_retriever
   context:
+    - rag_define_search_params_task
     - rag_prompt_task

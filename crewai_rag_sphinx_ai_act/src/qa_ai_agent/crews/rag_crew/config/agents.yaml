@@ -8,6 +8,16 @@ rag_prompt_rewriter:
     and RAG performance.
   llm: azure/gpt-4.1
 
+rag_define_search_params:
+  role: >
+    RAG Search Parameters Expert
+  goal: >
+    Define the optimal search parameters for retrieving documents from the local collection.
+  backstory: >
+    You are knowledgeable about various search parameters and their impact
+    on retrieval effectiveness.
+  llm: azure/gpt-4.1
+
 rag_retriever:
   role: >
     RAG Retriever

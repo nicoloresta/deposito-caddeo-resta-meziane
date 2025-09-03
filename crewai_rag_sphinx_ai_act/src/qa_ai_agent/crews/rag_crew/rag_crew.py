@@ -24,7 +24,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.project import CrewBase, agent, crew, task
 
-from ...tools.qdrant_custom_tool import RagTool
+from ...tools.qdrant_custom_tool import RagTool, RetrieverSettings
 
 
 @CrewBase
@@ -82,6 +82,32 @@ class RagCrew:
         )
 
     @agent
+    def rag_define_search_params(self) -> Agent:
+        """
+        Create the RAG search parameters agent.
+
+        This agent is responsible for defining the optimal search parameters
+        for retrieving documents from the local collection. It analyzes the
+        user's query and suggests parameters that can enhance retrieval effectiveness.
+
+        Returns
+        -------
+        Agent
+            Configured agent for defining search parameters with settings from the
+            agents configuration file.
+
+        Notes
+        -----
+        The agent configuration is loaded from the 'rag_search_parameters' section
+        of the agents configuration file.
+        """
+        return Agent(
+            config=self.agents_config["rag_define_search_params"],  # type: ignore[index]
+            verbose=True,
+            output_model=RetrieverSettings,
+        )
+
+    @agent
     def rag_retriever(self) -> Agent:
         """
         Create the RAG retriever agent.
@@ -131,6 +157,29 @@ class RagCrew:
         """
         return Task(
             config=self.tasks_config["rag_prompt_task"],  # type: ignore[index]
+        )
+    
+    @task
+    def rag_define_search_params_task(self) -> Task:
+        """
+        Create the RAG define search parameters task.
+
+        This task defines the work to be performed by the search parameters agent.
+        It specifies how to determine the best search parameters for document retrieval.
+
+        Returns
+        -------
+        Task
+            Configured task for defining search parameters with settings from the
+            tasks configuration file.
+
+        Notes
+        -----
+        Task configuration is loaded from the 'rag_define_search_params_task' section of
+        the tasks configuration file.
+        """
+        return Task(
+            config=self.tasks_config["rag_define_search_params_task"],  # type: ignore[index]
         )
 
     @task
