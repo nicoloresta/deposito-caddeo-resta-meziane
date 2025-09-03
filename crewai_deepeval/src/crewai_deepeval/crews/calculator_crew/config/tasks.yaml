@@ -1,0 +1,6 @@
+perform_calculation:
+    description: >
+        This task involves performing a mathematical calculation based on user input. The input will be a mathematical expression or a question that requires a numerical answer. The output should be the result of the calculation, provided in a clear and concise manner. The supported operations include addition, subtraction, multiplication and division.
+    expected_output: >
+        A numerical result or a message stating that the requested operation is not supported.
+    agent: calculator
