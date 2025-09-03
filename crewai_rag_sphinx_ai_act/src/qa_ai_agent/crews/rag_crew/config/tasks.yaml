@@ -1,0 +1,19 @@
+rag_prompt_task:
+  description: >
+    Reformulate the user's prompt:
+    {topic}
+    to maximize retrieval quality
+    from the local document collection.
+  expected_output: >
+    A rewritten prompt optimized for document retrieval.
+  agent: rag_prompt_rewriter
+
+rag_retrieval_task:
+  description: >
+    Retrieve the most relevant information from the local document
+    collection based on the rewritten prompt.
+  expected_output: >
+    The most relevant passages or facts from the local files if any are found, otherwise return "0".
+  agent: rag_retriever
+  context:
+    - rag_prompt_task

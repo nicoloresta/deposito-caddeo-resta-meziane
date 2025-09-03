@@ -1,0 +1,15 @@
+summarization_task:
+  description: >
+    Take the results from {prompt}, which refer to {topic},
+    and summarize it in a clear, well-structured, and non-redundant Markdown document. 
+    Adapt the summary style to the type of source, highlight the most important insights, 
+    and ensure the output is actionable and easy to read. 
+  
+  expected_output: >
+    Provide a natural language summary in Markdown format, 
+    suitable for end users, that synthesizes the key findings of {prompt},
+    in case results are meaningfull respecvt the request {topic}; 
+    otherwise, clearly state that no relevant information was found currently about {topic}.
+  agent: summarizer
+
+  output_file: output/report.md

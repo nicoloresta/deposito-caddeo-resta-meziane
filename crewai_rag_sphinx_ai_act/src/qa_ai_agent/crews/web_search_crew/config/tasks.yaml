@@ -1,0 +1,17 @@
+web_prompt_task:
+  description: >
+    Reformulate the user's prompt:
+    {prompt}
+    to maximize the effectiveness of web search tools.
+  expected_output: >
+    A rewritten prompt optimized for web search.
+  agent: web_prompt_rewriter
+
+web_search_task:
+  description: >
+    Use web search tools to find the most relevant and up-to-date information for the user's query:
+  expected_output: >
+    The most relevant and recent information from the web.
+  agent: web_searcher
+  context:
+    - web_prompt_task

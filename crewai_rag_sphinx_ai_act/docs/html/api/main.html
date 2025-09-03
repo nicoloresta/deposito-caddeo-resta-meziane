@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Module &mdash; QA AI Agent 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tools Module" href="tools.html" />
+    <link rel="prev" title="Quick Start" href="../quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QA AI Agent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#example-flow">Example Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="crews.html">Crews Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="crews.html#module-src.qa_ai_agent.crews.rag_crew.rag_crew">RAG Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crews.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crews.html#module-src.qa_ai_agent.crews.summarizer_crew.summarizer_crew">Summarizer Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crews.html#id1">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crews.html#module-src.qa_ai_agent.crews.web_search_crew.web_search_crew">Web Search Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crews.html#id2">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crews.html#module-src.qa_ai_agent.crews.manager_choice_crew.manager_choice_crew">Manager Choice Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crews.html#id3">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crews.html#module-src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew">Ethics Checker Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crews.html#id4">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.is_ethical"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.is_ethical</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.reason"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.model_config"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.model_config</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuration.html#configuration-options">Configuration Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configuration.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration.html#configuration-files">Configuration Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration.html#example-configuration">Example Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#basic-usage-examples">Basic Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples.html#simple-question-answering">Simple Question Answering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples.html#rag-based-question-answering">RAG-based Question Answering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples.html#web-search-integration">Web Search Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#advanced-examples">Advanced Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples.html#custom-tool-integration">Custom Tool Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples.html#multi-agent-workflow">Multi-Agent Workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QA AI Agent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Main Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/main.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="main-module">
+<h1>Main Module<a class="headerlink" href="#main-module" title="Link to this heading"></a></h1>
+<p>Main module for the QA AI Agent system.</p>
+<p>This module implements a flow-based system for managing user queries about topics,
+with ethical checking, routing to appropriate crews (RAG or web search), and
+summarization of results.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>GuideCreatorState</dt><dd><p>Pydantic model for storing the current state of the guide creation flow.</p>
+</dd>
+<dt>GuideCreatorFlow</dt><dd><p>Main flow class that orchestrates the entire QA process.</p>
+</dd>
+</dl>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>kickoff</dt><dd><p>Start the guide creator flow.</p>
+</dd>
+<dt>plot</dt><dd><p>Generate a visualization of the flow.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">kickoff</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kickoff</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.qa_ai_agent.main.</span></span><span class="sig-name descname"><span class="pre">GuideCreatorState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorState"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>State model for the guide creator flow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> (<em>str</em>)</p></li>
+<li><p><strong>response</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">topic</span></span></dt>
+<dd><p>The current topic being processed by the flow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str, default=””</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">topic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">response</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[ConfigDict]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.qa_ai_agent.main.</span></span><span class="sig-name descname"><span class="pre">GuideCreatorFlow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">persistence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_FlowGeneric</span></code></p>
+<p>Flow to manage the user choice to search information about a topic or perform a calculation.</p>
+<p>This flow implements a complete pipeline for processing user queries:
+1. Gets user input for a topic
+2. Performs ethical analysis of the topic
+3. Routes to appropriate information retrieval method (RAG or web search)
+4. Summarizes the results</p>
+<p>The flow uses CrewAI’s flow framework to orchestrate multiple AI agents
+working together to provide comprehensive answers to user queries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>persistence</strong> (<em>FlowPersistence</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>tracing</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">state</span></span></dt>
+<dd><p>The current state of the flow, containing the topic being processed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>GuideCreatorState</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_user_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorFlow.get_user_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get the user choice for a topic to search.</p>
+<p>Prompts the user to input a topic they would like to search for
+and stores it in the flow state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The user’s input topic.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">ethics_checker_router</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorFlow.ethics_checker_router"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Check the ethical considerations for the guide topic.</p>
+<p>This method creates an ethics checking crew to analyze whether
+the user’s requested topic is appropriate and ethical to process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either “ethics_passed” if the topic is ethical, or “retry” if not.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If ethics analysis fails, the user is prompted to choose a different topic.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">manager_choice_router</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorFlow.manager_choice_router"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Manage the user choice for information search or calculation.</p>
+<p>This method determines whether the user’s topic is related to smartphones
+(which can use the RAG system) or requires general web search.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Routing decision: “smartphone_rag”, “general_search”, or “retry”.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Choice “1” routes to smartphone RAG, choice “2” routes to general search.
+Any other choice results in a retry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">run_smartphone_rag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorFlow.run_smartphone_rag"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Run the smartphone RAG crew to gather information about smartphones.</p>
+<p>This method uses the RAG (Retrieval-Augmented Generation) system to
+search through pre-indexed smartphone documents and provide relevant
+information to the user’s query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either the RAG response content or routes to “general_search” if
+no relevant context is found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If the RAG crew returns “0” (indicating no relevant context found),
+the request is automatically routed to the general search crew.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">run_general_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorFlow.run_general_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Run the general search crew to perform a web search.</p>
+<p>This method uses the web search crew to find information about topics
+that are not covered by the smartphone RAG system or when RAG fails
+to find relevant information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The raw response from the web search crew containing search results.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">summarization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#GuideCreatorFlow.summarization"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Summarize the response from the RAG or general search crew.</p>
+<p>This method takes the output from either the RAG crew or web search crew
+and creates a comprehensive summary of the information found. The summary
+is saved to an output file for the user to review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>to_summarize</strong> (<em>str</em>) – The content to be summarized, typically the output from RAG or web search.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The summarization crew processes the content and saves the result to
+‘output/report.md’. This is the final step in the QA flow.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">src.qa_ai_agent.main.</span></span><span class="sig-name descname"><span class="pre">kickoff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#kickoff"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Start the guide creator flow.</p>
+<p>This function initializes and runs the complete GuideCreatorFlow,
+orchestrating the entire QA process from user input to final summary.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kickoff</span><span class="p">()</span>
+<span class="go">What topic would you like to search?</span>
+<span class="go">&gt; smartphones</span>
+<span class="go">Checking ethical considerations...</span>
+<span class="go">Ethics analysis passed.</span>
+<span class="go">Managing user choice...</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">src.qa_ai_agent.main.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/main.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Generate a visualization of the flow.</p>
+<p>This function creates a visual representation of the GuideCreatorFlow
+structure, showing the relationships between different stages and
+decision points in the flow.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">()</span>
+<span class="go">Flow visualization saved to qa_flow.html</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tools.html" class="btn btn-neutral float-right" title="Tools Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Nico Resta &amp; Tommaso Lippolis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

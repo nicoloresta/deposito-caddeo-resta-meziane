@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew &mdash; QA AI Agent 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            QA AI Agent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#example-flow">Example Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../quickstart.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/main.html">Main Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/tools.html">Tools Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/crews.html">Crews Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/crews.html#rag-crew">RAG Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/crews.html#module-src.qa_ai_agent.crews.summarizer_crew.summarizer_crew">Summarizer Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/crews.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/crews.html#web-search-crew">Web Search Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/crews.html#module-src.qa_ai_agent.crews.manager_choice_crew.manager_choice_crew">Manager Choice Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/crews.html#id1">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/crews.html#module-src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew">Ethics Checker Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/crews.html#id2">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.is_ethical"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.is_ethical</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.reason"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.model_config"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.model_config</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">QA AI Agent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Ethics checker crew for evaluating query appropriateness and ethical considerations.</span>
+
+<span class="sd">This module implements a specialized crew that analyzes user queries to determine</span>
+<span class="sd">whether they are appropriate and ethical to process. It acts as a safety filter</span>
+<span class="sd">in the QA flow, ensuring that only suitable topics are processed.</span>
+
+<span class="sd">The crew evaluates the ethical implications of user requests and provides</span>
+<span class="sd">reasoning for its decisions, helping maintain responsible AI usage.</span>
+
+<span class="sd">Classes</span>
+<span class="sd">-------</span>
+<span class="sd">EthicAnalysis</span>
+<span class="sd">    Pydantic model for ethics check results.</span>
+<span class="sd">EthicCheckerCrew</span>
+<span class="sd">    Crew class that orchestrates ethics checking operations.</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">&gt;&gt;&gt; from .crews.ethic_checker_crew.ethic_checker_crew import EthicCheckerCrew</span>
+<span class="sd">&gt;&gt;&gt; crew = EthicCheckerCrew()</span>
+<span class="sd">&gt;&gt;&gt; result = crew.crew().kickoff(inputs={&#39;topic&#39;: &#39;smartphone specifications&#39;})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">crewai</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Crew</span><span class="p">,</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Task</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">crewai.project</span><span class="w"> </span><span class="kn">import</span> <span class="n">CrewBase</span><span class="p">,</span> <span class="n">agent</span><span class="p">,</span> <span class="n">crew</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">crewai.agents.agent_builder.base_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseAgent</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+<div class="viewcode-block" id="EthicAnalysis">
+<a class="viewcode-back" href="../../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">EthicAnalysis</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Pydantic model for the output of the ethics check.</span>
+<span class="sd">    </span>
+<span class="sd">    This model defines the structure of the ethics analysis results,</span>
+<span class="sd">    providing a clear format for the ethical evaluation of user queries.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    is_ethical : bool</span>
+<span class="sd">        True if the topic is ethical and appropriate to process, False otherwise.</span>
+<span class="sd">        This field determines whether the query can proceed in the QA flow.</span>
+<span class="sd">    reason : str</span>
+<span class="sd">        A brief explanation for the ethical judgment, providing transparency</span>
+<span class="sd">        about why a topic was approved or rejected.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; analysis = EthicAnalysis(is_ethical=True, reason=&quot;Topic is about technology specifications&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; analysis.is_ethical</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; analysis.reason</span>
+<span class="sd">    &#39;Topic is about technology specifications&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">is_ethical</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;True if the topic is ethical, False otherwise.&quot;</span><span class="p">)</span>
+    <span class="n">reason</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;A brief explanation for the ethical judgment.&quot;</span><span class="p">)</span></div>
+
+
+<span class="nd">@CrewBase</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EthicCheckerCrew</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ethics checker crew for evaluating query appropriateness and ethical considerations.</span>
+<span class="sd">    </span>
+<span class="sd">    This crew is responsible for analyzing user topics to determine whether they</span>
+<span class="sd">    are appropriate and ethical to process. It acts as a safety filter at the</span>
+<span class="sd">    beginning of the QA flow, ensuring that only suitable topics proceed to</span>
+<span class="sd">    information retrieval.</span>
+<span class="sd">    </span>
+<span class="sd">    The crew uses a specialized ethics checking agent to evaluate queries based</span>
+<span class="sd">    on ethical guidelines and appropriateness criteria. It provides clear reasoning</span>
+<span class="sd">    for its decisions, promoting transparency and responsible AI usage.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    agents : List[BaseAgent]</span>
+<span class="sd">        List of agents managed by the crew (automatically populated by decorators).</span>
+<span class="sd">    tasks : List[Task]</span>
+<span class="sd">        List of tasks managed by the crew (automatically populated by decorators).</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; crew = EthicCheckerCrew()</span>
+<span class="sd">    &gt;&gt;&gt; result = crew.crew().kickoff(inputs={&#39;topic&#39;: &#39;smartphone features&#39;})</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">agents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseAgent</span><span class="p">]</span>
+    <span class="n">tasks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Task</span><span class="p">]</span>
+
+    <span class="nd">@agent</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ethic_checker</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Agent</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the ethics checker agent.</span>
+<span class="sd">        </span>
+<span class="sd">        This agent is responsible for analyzing user topics and determining</span>
+<span class="sd">        their ethical appropriateness. It evaluates queries based on ethical</span>
+<span class="sd">        guidelines and provides reasoning for its decisions.</span>
+<span class="sd">        </span>
+<span class="sd">        The agent is configured to return results in the EthicAnalysis format,</span>
+<span class="sd">        ensuring consistent and structured output for the ethics evaluation.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Agent</span>
+<span class="sd">            Configured agent for ethics checking with EthicAnalysis response</span>
+<span class="sd">            format and settings from the agents configuration file.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The agent configuration is loaded from the &#39;ethic_checker&#39; section of</span>
+<span class="sd">        the agents configuration file. The agent is configured to return</span>
+<span class="sd">        structured output using the EthicAnalysis model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Agent</span><span class="p">(</span>
+            <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agents_config</span><span class="p">[</span><span class="s1">&#39;ethic_checker&#39;</span><span class="p">],</span> <span class="c1"># type: ignore[index]</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">response_format</span><span class="o">=</span><span class="n">EthicAnalysis</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@task</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_user_topic_ethic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the ethics checking task.</span>
+<span class="sd">        </span>
+<span class="sd">        This task defines the work to be performed by the ethics checker agent.</span>
+<span class="sd">        It specifies how user topics should be evaluated for ethical appropriateness</span>
+<span class="sd">        and what criteria should be used for the evaluation.</span>
+<span class="sd">        </span>
+<span class="sd">        The task is configured to output results in JSON format using the</span>
+<span class="sd">        EthicAnalysis model, ensuring consistent and parseable output.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Task</span>
+<span class="sd">            Configured task for ethics checking with EthicAnalysis output format</span>
+<span class="sd">            and settings from the tasks configuration file.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Task configuration is loaded from the &#39;check_user_topic_ethic&#39; section of</span>
+<span class="sd">        the tasks configuration file. The task outputs results in JSON format</span>
+<span class="sd">        using the EthicAnalysis model for easy parsing and integration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Task</span><span class="p">(</span>
+            <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_config</span><span class="p">[</span><span class="s1">&#39;check_user_topic_ethic&#39;</span><span class="p">],</span> <span class="c1"># type: ignore[index]</span>
+            <span class="n">output_json</span><span class="o">=</span><span class="n">EthicAnalysis</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@crew</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">crew</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Crew</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the orchestrated ethics checker crew.</span>
+<span class="sd">        </span>
+<span class="sd">        This method assembles the ethics checker agent and task into a working</span>
+<span class="sd">        crew that evaluates user topics for ethical appropriateness. The crew</span>
+<span class="sd">        uses sequential processing to ensure the ethics analysis is completed</span>
+<span class="sd">        before proceeding with the evaluation results.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Crew</span>
+<span class="sd">            Configured crew with sequential processing, combining the ethics</span>
+<span class="sd">            checker agent with the ethics checking task.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The crew is designed to work as the first safety filter in the QA flow,</span>
+<span class="sd">        evaluating topics before they proceed to information retrieval. It</span>
+<span class="sd">        ensures responsible AI usage by filtering out inappropriate or unethical</span>
+<span class="sd">        queries early in the process.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Crew</span><span class="p">(</span>
+            <span class="n">agents</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">,</span> <span class="c1"># Automatically created by the @agent decorator</span>
+            <span class="n">tasks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">,</span> <span class="c1"># Automatically created by the @task decorator</span>
+            <span class="n">process</span><span class="o">=</span><span class="n">Process</span><span class="o">.</span><span class="n">sequential</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="c1"># process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/</span>
+        <span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Nico Resta &amp; Tommaso Lippolis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

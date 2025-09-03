@@ -1,0 +1,23 @@
+rag_prompt_rewriter:
+  role: >
+    RAG Prompt Rewriter
+  goal: >
+    Reformulate the user prompts to maximize retrieval quality from the local document collection.
+  backstory: >
+    You are skilled at rephrasing questions to improve document retrieval
+    and RAG performance.
+  llm: azure/gpt-4.1
+
+rag_retriever:
+  role: >
+    RAG Retriever
+  goal: >
+    Retrieve the most relevant information, given a query, 
+    from the local document collection based on the rewritten prompt.
+    Use the RagTool to assist you in this task. If the rag RagTool
+    requires some specific retrieval settings, you can carefully 
+    choose and specify them using the "settings" field of the RagTool input.
+  backstory: >
+    You are an expert in searching and extracting relevant content
+    from large document sets.
+  llm: azure/gpt-4.1

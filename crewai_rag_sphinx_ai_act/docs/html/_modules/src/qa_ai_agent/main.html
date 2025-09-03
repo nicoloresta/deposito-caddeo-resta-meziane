@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.qa_ai_agent.main &mdash; QA AI Agent 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QA AI Agent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#example-flow">Example Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/main.html">Main Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/main.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/main.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState.topic"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.topic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#id0"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.topic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState.response"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.response</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState.model_config"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.state"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.get_user_input"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.get_user_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.ethics_checker_router"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.ethics_checker_router()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.manager_choice_router"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.manager_choice_router()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_smartphone_rag"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.run_smartphone_rag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_general_search"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.run_general_search()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.summarization"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.summarization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.kickoff"><code class="docutils literal notranslate"><span class="pre">kickoff()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/main.html#src.qa_ai_agent.main.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/tools.html">Tools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.search_type"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.search_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.k"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.k</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.fetch_k"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.fetch_k</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.mmr_lambda"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.mmr_lambda</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.__init__"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.chunk_size"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.chunk_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.chunk_overlap"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.chunk_overlap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.__init__"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.load_docs"><code class="docutils literal notranslate"><span class="pre">load_docs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.chunk_docs"><code class="docutils literal notranslate"><span class="pre">chunk_docs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput"><code class="docutils literal notranslate"><span class="pre">RagToolInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput.query"><code class="docutils literal notranslate"><span class="pre">RagToolInput.query</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput.model_config"><code class="docutils literal notranslate"><span class="pre">RagToolInput.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool"><code class="docutils literal notranslate"><span class="pre">RagTool</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.name"><code class="docutils literal notranslate"><span class="pre">RagTool.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.description"><code class="docutils literal notranslate"><span class="pre">RagTool.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.args_schema"><code class="docutils literal notranslate"><span class="pre">RagTool.args_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool._retriever"><code class="docutils literal notranslate"><span class="pre">RagTool._retriever</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#id0"><code class="docutils literal notranslate"><span class="pre">RagTool.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#id1"><code class="docutils literal notranslate"><span class="pre">RagTool.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#id2"><code class="docutils literal notranslate"><span class="pre">RagTool.args_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.__init__"><code class="docutils literal notranslate"><span class="pre">RagTool.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.model_config"><code class="docutils literal notranslate"><span class="pre">RagTool.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.model_post_init"><code class="docutils literal notranslate"><span class="pre">RagTool.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool._run"><code class="docutils literal notranslate"><span class="pre">RagTool._run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/crews.html">Crews Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/crews.html#module-src.qa_ai_agent.crews.rag_crew.rag_crew">RAG Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/crews.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/crews.html#module-src.qa_ai_agent.crews.summarizer_crew.summarizer_crew">Summarizer Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/crews.html#id1">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/crews.html#module-src.qa_ai_agent.crews.web_search_crew.web_search_crew">Web Search Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/crews.html#id2">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/crews.html#module-src.qa_ai_agent.crews.manager_choice_crew.manager_choice_crew">Manager Choice Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/crews.html#id3">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/crews.html#module-src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew">Ethics Checker Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/crews.html#id4">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.is_ethical"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.is_ethical</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.reason"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.model_config"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.model_config</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QA AI Agent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.qa_ai_agent.main</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.qa_ai_agent.main</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Main module for the QA AI Agent system.</span>
+
+<span class="sd">This module implements a flow-based system for managing user queries about topics,</span>
+<span class="sd">with ethical checking, routing to appropriate crews (RAG or web search), and</span>
+<span class="sd">summarization of results.</span>
+
+<span class="sd">Classes</span>
+<span class="sd">-------</span>
+<span class="sd">GuideCreatorState</span>
+<span class="sd">    Pydantic model for storing the current state of the guide creation flow.</span>
+<span class="sd">GuideCreatorFlow</span>
+<span class="sd">    Main flow class that orchestrates the entire QA process.</span>
+
+<span class="sd">Functions</span>
+<span class="sd">---------</span>
+<span class="sd">kickoff</span>
+<span class="sd">    Start the guide creator flow.</span>
+<span class="sd">plot</span>
+<span class="sd">    Generate a visualization of the flow.</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">&gt;&gt;&gt; from .main import kickoff</span>
+<span class="sd">&gt;&gt;&gt; kickoff()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">re</span><span class="w"> </span><span class="kn">import</span> <span class="n">search</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">crewai.flow.flow</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flow</span><span class="p">,</span> <span class="n">listen</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">router</span><span class="p">,</span> <span class="n">or_</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">crewai</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLM</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.crews.rag_crew.rag_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">RagCrew</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.crews.summarizer_crew.summarizer_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">SummarizationCrew</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.crews.web_search_crew.web_search_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebSearchCrew</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.crews.manager_choice_crew.manager_choice_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">ManagerChoiceCrew</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.crews.ethic_checker_crew.ethic_checker_crew</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">EthicAnalysis</span><span class="p">,</span> 
+    <span class="n">EthicCheckerCrew</span>
+<span class="p">)</span>
+
+<div class="viewcode-block" id="GuideCreatorState">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GuideCreatorState</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    State model for the guide creator flow.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    topic : str, default=&quot;&quot;</span>
+<span class="sd">        The current topic being processed by the flow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">response</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="GuideCreatorFlow">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GuideCreatorFlow</span><span class="p">(</span><span class="n">Flow</span><span class="p">[</span><span class="n">GuideCreatorState</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Flow to manage the user choice to search information about a topic or perform a calculation.</span>
+<span class="sd">    </span>
+<span class="sd">    This flow implements a complete pipeline for processing user queries:</span>
+<span class="sd">    1. Gets user input for a topic</span>
+<span class="sd">    2. Performs ethical analysis of the topic</span>
+<span class="sd">    3. Routes to appropriate information retrieval method (RAG or web search)</span>
+<span class="sd">    4. Summarizes the results</span>
+<span class="sd">    </span>
+<span class="sd">    The flow uses CrewAI&#39;s flow framework to orchestrate multiple AI agents</span>
+<span class="sd">    working together to provide comprehensive answers to user queries.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    state : GuideCreatorState</span>
+<span class="sd">        The current state of the flow, containing the topic being processed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="GuideCreatorFlow.get_user_input">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.get_user_input">[docs]</a>
+    <span class="nd">@start</span><span class="p">(</span><span class="s2">&quot;retry&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_user_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the user choice for a topic to search.</span>
+<span class="sd">        </span>
+<span class="sd">        Prompts the user to input a topic they would like to search for</span>
+<span class="sd">        and stores it in the flow state.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The user&#39;s input topic.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">What topic would you like to search?</span><span class="se">\n</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topic</span>    </div>
+
+
+<div class="viewcode-block" id="GuideCreatorFlow.ethics_checker_router">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.ethics_checker_router">[docs]</a>
+    <span class="nd">@router</span><span class="p">(</span><span class="n">get_user_input</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ethics_checker_router</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the ethical considerations for the guide topic.</span>
+<span class="sd">        </span>
+<span class="sd">        This method creates an ethics checking crew to analyze whether</span>
+<span class="sd">        the user&#39;s requested topic is appropriate and ethical to process.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Either &quot;ethics_passed&quot; if the topic is ethical, or &quot;retry&quot; if not.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        If ethics analysis fails, the user is prompted to choose a different topic.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking ethical considerations...&quot;</span><span class="p">)</span>
+
+        <span class="n">ethic_checker_crew</span> <span class="o">=</span> <span class="n">EthicCheckerCrew</span><span class="p">()</span>
+        <span class="n">dict_analysis</span> <span class="o">=</span> <span class="n">ethic_checker_crew</span><span class="o">.</span><span class="n">crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topic</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">analysis_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">dict_analysis</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+        <span class="n">ethic_analysis_obj</span> <span class="o">=</span> <span class="n">EthicAnalysis</span><span class="p">(</span><span class="o">**</span><span class="n">analysis_data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ethic_analysis_obj</span><span class="o">.</span><span class="n">is_ethical</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ethics analysis passed.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;ethics_passed&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ethics analysis failed.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ethics analysis details: </span><span class="si">{</span><span class="n">ethic_analysis_obj</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">. Please choose a different request.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;retry&quot;</span></div>
+
+
+<div class="viewcode-block" id="GuideCreatorFlow.manager_choice_router">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.manager_choice_router">[docs]</a>
+    <span class="nd">@router</span><span class="p">(</span><span class="s2">&quot;ethics_passed&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">manager_choice_router</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Manage the user choice for information search or calculation.</span>
+<span class="sd">        </span>
+<span class="sd">        This method determines whether the user&#39;s topic is related to smartphones</span>
+<span class="sd">        (which can use the RAG system) or requires general web search.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Routing decision: &quot;smartphone_rag&quot;, &quot;general_search&quot;, or &quot;retry&quot;.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Choice &quot;1&quot; routes to smartphone RAG, choice &quot;2&quot; routes to general search.</span>
+<span class="sd">        Any other choice results in a retry.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Managing user choice...&quot;</span><span class="p">)</span>
+
+        <span class="n">clf_crew</span> <span class="o">=</span> <span class="n">ManagerChoiceCrew</span><span class="p">()</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="n">clf_crew</span><span class="o">.</span><span class="n">manager_choice_crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topic</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="n">choice</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The user wants to search for information about smartphones.&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;smartphone_rag&quot;</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The user wants to search for information about a topic not related to smartphones.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;general_search&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The user&#39;s choice did not match any known options. Retrying...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;retry&quot;</span></div>
+
+
+<div class="viewcode-block" id="GuideCreatorFlow.run_smartphone_rag">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_smartphone_rag">[docs]</a>
+    <span class="nd">@router</span><span class="p">(</span><span class="s2">&quot;smartphone_rag&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_smartphone_rag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the smartphone RAG crew to gather information about smartphones.</span>
+<span class="sd">        </span>
+<span class="sd">        This method uses the RAG (Retrieval-Augmented Generation) system to</span>
+<span class="sd">        search through pre-indexed smartphone documents and provide relevant</span>
+<span class="sd">        information to the user&#39;s query.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Either the RAG response content or routes to &quot;general_search&quot; if</span>
+<span class="sd">            no relevant context is found.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        If the RAG crew returns &quot;0&quot; (indicating no relevant context found),</span>
+<span class="sd">        the request is automatically routed to the general search crew.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running the smartphone RAG crew...&quot;</span><span class="p">)</span>
+        <span class="n">rag_crew</span> <span class="o">=</span> <span class="n">RagCrew</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">rag_crew</span><span class="o">.</span><span class="n">crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topic</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RAG crew did not find relevant context.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trying to pass the request to the general search crew...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;general_search&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RAG crew completed and found relevant context.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">return</span> <span class="s2">&quot;summarize&quot;</span></div>
+
+
+<div class="viewcode-block" id="GuideCreatorFlow.run_general_search">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_general_search">[docs]</a>
+    <span class="nd">@router</span><span class="p">(</span><span class="s2">&quot;general_search&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_general_search</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the general search crew to perform a web search.</span>
+<span class="sd">        </span>
+<span class="sd">        This method uses the web search crew to find information about topics</span>
+<span class="sd">        that are not covered by the smartphone RAG system or when RAG fails</span>
+<span class="sd">        to find relevant information.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The raw response from the web search crew containing search results.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running the general search crew...&quot;</span><span class="p">)</span>
+        <span class="n">search_crew</span> <span class="o">=</span> <span class="n">WebSearchCrew</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">search_crew</span><span class="o">.</span><span class="n">crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topic</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s2">&quot;summarize&quot;</span></div>
+
+
+<div class="viewcode-block" id="GuideCreatorFlow.summarization">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.summarization">[docs]</a>
+    <span class="nd">@listen</span><span class="p">(</span><span class="s2">&quot;summarize&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summarization</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Summarize the response from the RAG or general search crew.</span>
+<span class="sd">        </span>
+<span class="sd">        This method takes the output from either the RAG crew or web search crew</span>
+<span class="sd">        and creates a comprehensive summary of the information found. The summary</span>
+<span class="sd">        is saved to an output file for the user to review.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        to_summarize : str</span>
+<span class="sd">            The content to be summarized, typically the output from RAG or web search.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The summarization crew processes the content and saves the result to</span>
+<span class="sd">        &#39;output/report.md&#39;. This is the final step in the QA flow.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summarizing the response from the RAG or general search crew...&quot;</span><span class="p">)</span>
+        <span class="n">crew</span> <span class="o">=</span> <span class="n">SummarizationCrew</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">summarization_crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">response</span><span class="p">,</span>
+                <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topic</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QA_AI_Agent task completed!&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="kickoff">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.kickoff">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">kickoff</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Start the guide creator flow.</span>
+<span class="sd">    </span>
+<span class="sd">    This function initializes and runs the complete GuideCreatorFlow,</span>
+<span class="sd">    orchestrating the entire QA process from user input to final summary.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; kickoff()</span>
+<span class="sd">    What topic would you like to search?</span>
+<span class="sd">    &gt; smartphones</span>
+<span class="sd">    Checking ethical considerations...</span>
+<span class="sd">    Ethics analysis passed.</span>
+<span class="sd">    Managing user choice...</span>
+<span class="sd">    ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">GuideCreatorFlow</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Flow Complete ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your comprehensive guide is ready in the output directory.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Open output/report.md to view it.&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="plot">
+<a class="viewcode-back" href="../../../api/main.html#src.qa_ai_agent.main.plot">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a visualization of the flow.</span>
+<span class="sd">    </span>
+<span class="sd">    This function creates a visual representation of the GuideCreatorFlow</span>
+<span class="sd">    structure, showing the relationships between different stages and</span>
+<span class="sd">    decision points in the flow.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; plot()</span>
+<span class="sd">    Flow visualization saved to qa_flow.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flow</span> <span class="o">=</span> <span class="n">GuideCreatorFlow</span><span class="p">()</span>
+    <span class="n">flow</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;qa_flow&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Flow visualization saved to qa_flow.html&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">kickoff</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Nico Resta &amp; Tommaso Lippolis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

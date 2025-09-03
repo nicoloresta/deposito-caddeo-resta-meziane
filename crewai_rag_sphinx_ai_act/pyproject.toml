@@ -1,0 +1,22 @@
+[project]
+name = "qa_ai_agent"
+version = "0.1.0"
+description = "qa_ai_agent using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.165.1,<1.0.0",
+    "faiss-cpu>=1.12.0",
+]
+
+[project.scripts]
+kickoff = "qa_ai_agent.main:kickoff"
+run_crew = "qa_ai_agent.main:kickoff"
+plot = "qa_ai_agent.main:plot"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "flow"

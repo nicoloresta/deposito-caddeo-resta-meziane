@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crews Modules &mdash; QA AI Agent 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Tools Module" href="tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QA AI Agent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#example-flow">Example Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorState"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorState.topic"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.topic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#id0"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.topic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorState.response"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.response</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorState.model_config"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow.state"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow.get_user_input"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.get_user_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow.ethics_checker_router"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.ethics_checker_router()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow.manager_choice_router"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.manager_choice_router()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_smartphone_rag"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.run_smartphone_rag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_general_search"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.run_general_search()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html#src.qa_ai_agent.main.GuideCreatorFlow.summarization"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.summarization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#src.qa_ai_agent.main.kickoff"><code class="docutils literal notranslate"><span class="pre">kickoff()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#src.qa_ai_agent.main.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.search_type"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.search_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.k"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.k</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.fetch_k"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.fetch_k</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.mmr_lambda"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.mmr_lambda</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.__init__"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.chunk_size"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.chunk_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.chunk_overlap"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.chunk_overlap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.__init__"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.load_docs"><code class="docutils literal notranslate"><span class="pre">load_docs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.chunk_docs"><code class="docutils literal notranslate"><span class="pre">chunk_docs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput"><code class="docutils literal notranslate"><span class="pre">RagToolInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput.query"><code class="docutils literal notranslate"><span class="pre">RagToolInput.query</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput.model_config"><code class="docutils literal notranslate"><span class="pre">RagToolInput.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool"><code class="docutils literal notranslate"><span class="pre">RagTool</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.name"><code class="docutils literal notranslate"><span class="pre">RagTool.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.description"><code class="docutils literal notranslate"><span class="pre">RagTool.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.args_schema"><code class="docutils literal notranslate"><span class="pre">RagTool.args_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool._retriever"><code class="docutils literal notranslate"><span class="pre">RagTool._retriever</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#id0"><code class="docutils literal notranslate"><span class="pre">RagTool.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#id1"><code class="docutils literal notranslate"><span class="pre">RagTool.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#id2"><code class="docutils literal notranslate"><span class="pre">RagTool.args_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.__init__"><code class="docutils literal notranslate"><span class="pre">RagTool.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.model_config"><code class="docutils literal notranslate"><span class="pre">RagTool.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.model_post_init"><code class="docutils literal notranslate"><span class="pre">RagTool.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools.html#src.qa_ai_agent.tools.custom_tool.RagTool._run"><code class="docutils literal notranslate"><span class="pre">RagTool._run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Crews Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.qa_ai_agent.crews.rag_crew.rag_crew">RAG Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.qa_ai_agent.crews.summarizer_crew.summarizer_crew">Summarizer Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.qa_ai_agent.crews.web_search_crew.web_search_crew">Web Search Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.qa_ai_agent.crews.manager_choice_crew.manager_choice_crew">Manager Choice Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew">Ethics Checker Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.is_ethical"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.is_ethical</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.reason"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.model_config"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.model_config</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QA AI Agent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Crews Modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/crews.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crews-modules">
+<h1>Crews Modules<a class="headerlink" href="#crews-modules" title="Link to this heading"></a></h1>
+<section id="module-src.qa_ai_agent.crews.rag_crew.rag_crew">
+<span id="rag-crew"></span><h2>RAG Crew<a class="headerlink" href="#module-src.qa_ai_agent.crews.rag_crew.rag_crew" title="Link to this heading"></a></h2>
+<p>RAG (Retrieval-Augmented Generation) crew for smartphone information retrieval.</p>
+<p>This module implements a specialized crew for handling smartphone-related queries
+using RAG techniques. It combines prompt rewriting and document retrieval to
+provide accurate, context-aware responses based on pre-indexed smartphone documents.</p>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>RagCrew</dt><dd><p>Crew class that orchestrates RAG operations for smartphone queries.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">.crews.rag_crew.rag_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">RagCrew</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crew</span> <span class="o">=</span> <span class="n">RagCrew</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="s1">&#39;battery capacity&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="module-src.qa_ai_agent.crews.summarizer_crew.summarizer_crew">
+<span id="summarizer-crew"></span><h2>Summarizer Crew<a class="headerlink" href="#module-src.qa_ai_agent.crews.summarizer_crew.summarizer_crew" title="Link to this heading"></a></h2>
+<p>Summarization crew for processing and summarizing information.</p>
+<p>This module implements a specialized crew for creating concise, well-structured
+summaries of information retrieved from various sources. It takes the output
+from RAG or web search operations and produces a comprehensive summary that
+is saved to a markdown file for easy review.</p>
+<section id="id1">
+<h3>Classes<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>SummarizationCrew</dt><dd><p>Crew class that orchestrates summarization operations.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">.crews.summarizer_crew.summarizer_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">SummarizationCrew</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crew</span> <span class="o">=</span> <span class="n">SummarizationCrew</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">summarization_crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;prompt&#39;</span><span class="p">:</span> <span class="s1">&#39;content to summarize&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="module-src.qa_ai_agent.crews.web_search_crew.web_search_crew">
+<span id="web-search-crew"></span><h2>Web Search Crew<a class="headerlink" href="#module-src.qa_ai_agent.crews.web_search_crew.web_search_crew" title="Link to this heading"></a></h2>
+<p>Web search crew for general information retrieval.</p>
+<p>This module implements a specialized crew for performing web searches on topics
+that are not covered by the smartphone RAG system. It combines prompt rewriting
+with web search capabilities to find relevant information from the internet.</p>
+<p>The crew uses the SerperDev tool for web search operations and can handle
+a wide variety of topics beyond the scope of the pre-indexed documents.</p>
+<section id="id2">
+<h3>Classes<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>WebSearchCrew</dt><dd><p>Crew class that orchestrates web search operations.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">.crews.web_search_crew.web_search_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebSearchCrew</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crew</span> <span class="o">=</span> <span class="n">WebSearchCrew</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;prompt&#39;</span><span class="p">:</span> <span class="s1">&#39;latest technology trends&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="module-src.qa_ai_agent.crews.manager_choice_crew.manager_choice_crew">
+<span id="manager-choice-crew"></span><h2>Manager Choice Crew<a class="headerlink" href="#module-src.qa_ai_agent.crews.manager_choice_crew.manager_choice_crew" title="Link to this heading"></a></h2>
+<p>Manager choice crew for routing user queries to appropriate processing methods.</p>
+<p>This module implements a specialized crew that determines whether a user’s
+query should be handled by the smartphone RAG system or routed to general
+web search. It acts as a decision-making component in the QA flow.</p>
+<p>The crew analyzes the user’s topic and makes intelligent routing decisions
+to ensure queries are processed by the most appropriate information retrieval
+method.</p>
+<section id="id3">
+<h3>Classes<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ManagerChoiceCrew</dt><dd><p>Crew class that orchestrates query routing decisions.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">.crews.manager_choice_crew.manager_choice_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">ManagerChoiceCrew</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crew</span> <span class="o">=</span> <span class="n">ManagerChoiceCrew</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">manager_choice_crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="s1">&#39;smartphone specifications&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="module-src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew">
+<span id="ethics-checker-crew"></span><h2>Ethics Checker Crew<a class="headerlink" href="#module-src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew" title="Link to this heading"></a></h2>
+<p>Ethics checker crew for evaluating query appropriateness and ethical considerations.</p>
+<p>This module implements a specialized crew that analyzes user queries to determine
+whether they are appropriate and ethical to process. It acts as a safety filter
+in the QA flow, ensuring that only suitable topics are processed.</p>
+<p>The crew evaluates the ethical implications of user requests and provides
+reasoning for its decisions, helping maintain responsible AI usage.</p>
+<section id="id4">
+<h3>Classes<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>EthicAnalysis</dt><dd><p>Pydantic model for ethics check results.</p>
+</dd>
+<dt>EthicCheckerCrew</dt><dd><p>Crew class that orchestrates ethics checking operations.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">.crews.ethic_checker_crew.ethic_checker_crew</span><span class="w"> </span><span class="kn">import</span> <span class="n">EthicCheckerCrew</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crew</span> <span class="o">=</span> <span class="n">EthicCheckerCrew</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">crew</span><span class="p">()</span><span class="o">.</span><span class="n">kickoff</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="s1">&#39;smartphone specifications&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.</span></span><span class="sig-name descname"><span class="pre">EthicAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/qa_ai_agent/crews/ethic_checker_crew/ethic_checker_crew.html#EthicAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Pydantic model for the output of the ethics check.</p>
+<p>This model defines the structure of the ethics analysis results,
+providing a clear format for the ethical evaluation of user queries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_ethical</strong> (<em>bool</em>) – True if the topic is ethical and appropriate to process, False otherwise.
+This field determines whether the query can proceed in the QA flow.</p></li>
+<li><p><strong>reason</strong> (<em>str</em>) – A brief explanation for the ethical judgment, providing transparency
+about why a topic was approved or rejected.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">EthicAnalysis</span><span class="p">(</span><span class="n">is_ethical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Topic is about technology specifications&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">is_ethical</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">reason</span>
+<span class="go">&#39;Topic is about technology specifications&#39;</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.is_ethical">
+<span class="sig-name descname"><span class="pre">is_ethical</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></em><a class="headerlink" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.is_ethical" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.reason">
+<span class="sig-name descname"><span class="pre">reason</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.reason" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar[ConfigDict]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tools.html" class="btn btn-neutral float-left" title="Tools Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Nico Resta &amp; Tommaso Lippolis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

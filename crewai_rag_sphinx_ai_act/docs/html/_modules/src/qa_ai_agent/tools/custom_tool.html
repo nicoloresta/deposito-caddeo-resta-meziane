@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.qa_ai_agent.tools.custom_tool &mdash; QA AI Agent 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            QA AI Agent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#example-flow">Example Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/main.html">Main Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/main.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/main.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState.topic"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.topic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#id0"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.topic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState.response"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.response</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorState.model_config"><code class="docutils literal notranslate"><span class="pre">GuideCreatorState.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.state"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.get_user_input"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.get_user_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.ethics_checker_router"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.ethics_checker_router()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.manager_choice_router"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.manager_choice_router()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_smartphone_rag"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.run_smartphone_rag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.run_general_search"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.run_general_search()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.GuideCreatorFlow.summarization"><code class="docutils literal notranslate"><span class="pre">GuideCreatorFlow.summarization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.kickoff"><code class="docutils literal notranslate"><span class="pre">kickoff()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/main.html#src.qa_ai_agent.main.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/tools.html">Tools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.search_type"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.search_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.k"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.k</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.fetch_k"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.fetch_k</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.mmr_lambda"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.mmr_lambda</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings.__init__"><code class="docutils literal notranslate"><span class="pre">RetrieverSettings.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.chunk_size"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.chunk_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.chunk_overlap"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.chunk_overlap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings.__init__"><code class="docutils literal notranslate"><span class="pre">ChunkingSettings.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.load_docs"><code class="docutils literal notranslate"><span class="pre">load_docs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.chunk_docs"><code class="docutils literal notranslate"><span class="pre">chunk_docs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput"><code class="docutils literal notranslate"><span class="pre">RagToolInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput.query"><code class="docutils literal notranslate"><span class="pre">RagToolInput.query</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput.model_config"><code class="docutils literal notranslate"><span class="pre">RagToolInput.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool"><code class="docutils literal notranslate"><span class="pre">RagTool</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.name"><code class="docutils literal notranslate"><span class="pre">RagTool.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.description"><code class="docutils literal notranslate"><span class="pre">RagTool.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.args_schema"><code class="docutils literal notranslate"><span class="pre">RagTool.args_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool._retriever"><code class="docutils literal notranslate"><span class="pre">RagTool._retriever</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#id0"><code class="docutils literal notranslate"><span class="pre">RagTool.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#id1"><code class="docutils literal notranslate"><span class="pre">RagTool.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#id2"><code class="docutils literal notranslate"><span class="pre">RagTool.args_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.__init__"><code class="docutils literal notranslate"><span class="pre">RagTool.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.model_config"><code class="docutils literal notranslate"><span class="pre">RagTool.model_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.model_post_init"><code class="docutils literal notranslate"><span class="pre">RagTool.model_post_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool._run"><code class="docutils literal notranslate"><span class="pre">RagTool._run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/crews.html">Crews Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/crews.html#module-src.qa_ai_agent.crews.rag_crew.rag_crew">RAG Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/crews.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/crews.html#module-src.qa_ai_agent.crews.summarizer_crew.summarizer_crew">Summarizer Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/crews.html#id1">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/crews.html#module-src.qa_ai_agent.crews.web_search_crew.web_search_crew">Web Search Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/crews.html#id2">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/crews.html#module-src.qa_ai_agent.crews.manager_choice_crew.manager_choice_crew">Manager Choice Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/crews.html#id3">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/crews.html#module-src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew">Ethics Checker Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/crews.html#id4">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.is_ethical"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.is_ethical</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.reason"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/crews.html#src.qa_ai_agent.crews.ethic_checker_crew.ethic_checker_crew.EthicAnalysis.model_config"><code class="docutils literal notranslate"><span class="pre">EthicAnalysis.model_config</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">QA AI Agent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.qa_ai_agent.tools.custom_tool</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.qa_ai_agent.tools.custom_tool</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Custom tools for the QA AI Agent system.</span>
+
+<span class="sd">This module provides specialized tools for document processing, retrieval,</span>
+<span class="sd">and RAG (Retrieval-Augmented Generation) operations. It includes document</span>
+<span class="sd">loading, chunking, and a custom RAG tool that integrates with CrewAI.</span>
+
+<span class="sd">Classes</span>
+<span class="sd">-------</span>
+<span class="sd">RetrieverSettings</span>
+<span class="sd">    Configuration settings for document retrieval behavior.</span>
+<span class="sd">ChunkingSettings</span>
+<span class="sd">    Configuration settings for document chunking.</span>
+<span class="sd">RagToolInput</span>
+<span class="sd">    Input schema for the RAG tool.</span>
+<span class="sd">RagTool</span>
+<span class="sd">    Custom RAG tool for CrewAI integration.</span>
+
+<span class="sd">Functions</span>
+<span class="sd">---------</span>
+<span class="sd">load_docs</span>
+<span class="sd">    Load documents from a directory with support for multiple file types.</span>
+<span class="sd">chunk_docs</span>
+<span class="sd">    Split documents into smaller chunks for processing.</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">&gt;&gt;&gt; from .tools.custom_tool import RagTool, RetrieverSettings</span>
+<span class="sd">&gt;&gt;&gt; tool = RagTool(retriever_settings=RetrieverSettings(k=5))</span>
+<span class="sd">&gt;&gt;&gt; result = tool._run(&quot;What is the battery capacity of the Galaxy S22?&quot;)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain.text_splitter</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">crewai.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseTool</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.document_loaders</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CSVLoader</span><span class="p">,</span> 
+    <span class="n">DirectoryLoader</span><span class="p">,</span>
+    <span class="n">PyPDFLoader</span><span class="p">,</span> 
+    <span class="n">TextLoader</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.vectorstores</span><span class="w"> </span><span class="kn">import</span> <span class="n">FAISS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.documents</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">AzureOpenAIEmbeddings</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<div class="viewcode-block" id="RetrieverSettings">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RetrieverSettings">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RetrieverSettings</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Settings for configuring the retriever behavior.</span>
+<span class="sd">    </span>
+<span class="sd">    This dataclass provides configuration options for the FAISS retriever,</span>
+<span class="sd">    allowing customization of search strategy, result count, and diversity</span>
+<span class="sd">    parameters.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    search_type : str, default=&quot;similarity&quot;</span>
+<span class="sd">        Retrieval strategy. Supported values are ``&quot;similarity&quot;`` and ``&quot;mmr&quot;``</span>
+<span class="sd">        (Maximal Marginal Relevance).</span>
+<span class="sd">    k : int, default=4</span>
+<span class="sd">        Number of top documents to return.</span>
+<span class="sd">    fetch_k : int, default=10</span>
+<span class="sd">        Number of candidate documents to fetch before ranking/filtering.</span>
+<span class="sd">    mmr_lambda : float, default=0.5</span>
+<span class="sd">        Trade-off between diversity and relevance when using ``search_type=&quot;mmr&quot;``.</span>
+<span class="sd">        Higher values favor relevance, lower values favor diversity.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; settings = RetrieverSettings(search_type=&quot;mmr&quot;, k=5, mmr_lambda=0.7)</span>
+<span class="sd">    &gt;&gt;&gt; settings.search_type</span>
+<span class="sd">    &#39;mmr&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">search_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;similarity&quot;</span> <span class="c1"># &quot;mmr&quot; o &quot;similarity&quot;</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">fetch_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">mmr_lambda</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span></div>
+
+
+<div class="viewcode-block" id="ChunkingSettings">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.ChunkingSettings">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ChunkingSettings</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Chunking configuration for splitting documents.</span>
+<span class="sd">    </span>
+<span class="sd">    This dataclass defines how documents should be split into smaller chunks</span>
+<span class="sd">    for processing. The chunking process is crucial for effective retrieval</span>
+<span class="sd">    and embedding generation.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    chunk_size : int, default=1000</span>
+<span class="sd">        Target character length for each chunk. Larger chunks provide more</span>
+<span class="sd">        context but may be less focused.</span>
+<span class="sd">    chunk_overlap : int, default=200</span>
+<span class="sd">        Number of overlapping characters between adjacent chunks. Overlap</span>
+<span class="sd">        helps maintain context continuity across chunk boundaries.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; settings = ChunkingSettings(chunk_size=1500, chunk_overlap=300)</span>
+<span class="sd">    &gt;&gt;&gt; settings.chunk_size</span>
+<span class="sd">    1500</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">chunk_overlap</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span></div>
+
+
+<div class="viewcode-block" id="load_docs">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.load_docs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_docs</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">file_types</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;.md&quot;</span><span class="p">,</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;.csv&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Document</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load documents from a directory.</span>
+<span class="sd">    </span>
+<span class="sd">    Supports ``.txt``, ``.md``, ``.pdf``, and ``.csv`` files using langchain</span>
+<span class="sd">    loaders. Each file type is loaded with a suitable loader and aggregated</span>
+<span class="sd">    into a single list of ``Document`` objects.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : pathlib.Path</span>
+<span class="sd">        Directory containing the files to load. Must exist and be accessible.</span>
+<span class="sd">    file_types : list of str, optional</span>
+<span class="sd">        File extensions to include. Defaults to ``[&quot;.txt&quot;, &quot;.md&quot;, &quot;.pdf&quot;, &quot;.csv&quot;]``.</span>
+<span class="sd">        Unsupported file types are skipped with a warning message.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of langchain.schema.Document</span>
+<span class="sd">        Loaded documents with metadata preserved from the original files.</span>
+<span class="sd">    </span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If ``path`` does not exist or is not accessible.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from pathlib import Path</span>
+<span class="sd">    &gt;&gt;&gt; docs = load_docs(Path(&quot;./documents&quot;), [&quot;.txt&quot;, &quot;.pdf&quot;])</span>
+<span class="sd">    &gt;&gt;&gt; len(docs)</span>
+<span class="sd">    15</span>
+<span class="sd">    &gt;&gt;&gt; docs[0].metadata</span>
+<span class="sd">    {&#39;source&#39;: &#39;./documents/sample.txt&#39;}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid path provided&quot;</span><span class="p">)</span>
+
+    <span class="n">documents</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Load different file types</span>
+    <span class="k">for</span> <span class="n">file_type</span> <span class="ow">in</span> <span class="n">file_types</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s1">&#39;.txt&#39;</span> <span class="ow">or</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s1">&#39;.md&#39;</span><span class="p">:</span>
+                <span class="n">loader</span> <span class="o">=</span> <span class="n">DirectoryLoader</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span>
+                    <span class="n">glob</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;**/*</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">loader_cls</span><span class="o">=</span><span class="n">TextLoader</span><span class="p">,</span>
+                    <span class="n">loader_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">}</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s1">&#39;.pdf&#39;</span><span class="p">:</span>
+                <span class="n">loader</span> <span class="o">=</span> <span class="n">DirectoryLoader</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span>
+                    <span class="n">glob</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;**/*</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">loader_cls</span><span class="o">=</span><span class="n">PyPDFLoader</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s1">&#39;.csv&#39;</span><span class="p">:</span>
+                <span class="n">loader</span> <span class="o">=</span> <span class="n">DirectoryLoader</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span>
+                    <span class="n">glob</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;**/*</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">loader_cls</span><span class="o">=</span><span class="n">CSVLoader</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported file type: </span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="n">docs</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+            <span class="n">documents</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2"> documents&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2"> files: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">documents</span></div>
+
+
+<div class="viewcode-block" id="chunk_docs">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.chunk_docs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">chunk_docs</span><span class="p">(</span>
+        <span class="n">docs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Document</span><span class="p">],</span> 
+        <span class="n">settings</span><span class="p">:</span> <span class="n">ChunkingSettings</span>
+    <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Split documents into smaller chunks.</span>
+<span class="sd">    </span>
+<span class="sd">    Uses ``RecursiveCharacterTextSplitter`` with the provided settings to</span>
+<span class="sd">    generate overlapping chunks suitable for embedding and retrieval.</span>
+<span class="sd">    The splitter attempts to break on natural boundaries like paragraphs,</span>
+<span class="sd">    sentences, and punctuation.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    docs : list of langchain.schema.Document</span>
+<span class="sd">        Documents to split. Each document should have a ``page_content``</span>
+<span class="sd">        attribute containing the text to be chunked.</span>
+<span class="sd">    settings : ChunkingSettings</span>
+<span class="sd">        Chunking configuration specifying chunk size and overlap.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of langchain.schema.Document</span>
+<span class="sd">        Chunked documents with preserved metadata. Each chunk maintains</span>
+<span class="sd">        the original document&#39;s metadata while containing a subset of</span>
+<span class="sd">        the content.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from .tools.custom_tool import ChunkingSettings</span>
+<span class="sd">    &gt;&gt;&gt; settings = ChunkingSettings(chunk_size=500, chunk_overlap=100)</span>
+<span class="sd">    &gt;&gt;&gt; chunks = chunk_docs(documents, settings)</span>
+<span class="sd">    &gt;&gt;&gt; len(chunks)</span>
+<span class="sd">    25</span>
+<span class="sd">    &gt;&gt;&gt; chunks[0].page_content</span>
+<span class="sd">    &#39;First chunk content...&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text_splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span>
+        <span class="n">chunk_size</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">,</span>
+        <span class="n">chunk_overlap</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">chunk_overlap</span><span class="p">,</span>
+        <span class="n">separators</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;. &quot;</span><span class="p">,</span> <span class="s2">&quot;? &quot;</span><span class="p">,</span> <span class="s2">&quot;! &quot;</span><span class="p">,</span> <span class="s2">&quot;; &quot;</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;---&quot;</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_documents</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RagToolInput">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagToolInput">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RagToolInput</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input schema for ``RagTool``.</span>
+<span class="sd">    </span>
+<span class="sd">    This Pydantic model defines the expected input format for the RAG tool,</span>
+<span class="sd">    ensuring that queries are properly validated before processing.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    query : str</span>
+<span class="sd">        Query for retrieving the most relevant documents. Should be a</span>
+<span class="sd">        natural language question or search term.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; input_data = RagToolInput(query=&quot;What is the battery capacity?&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; input_data.query</span>
+<span class="sd">    &#39;What is the battery capacity?&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Query for retrieving most relevant documents&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RagTool">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RagTool</span><span class="p">(</span><span class="n">BaseTool</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieval-Augmented Generation (RAG) tool.</span>
+<span class="sd">    </span>
+<span class="sd">    The tool retrieves relevant document chunks from a FAISS index and can be</span>
+<span class="sd">    used within CrewAI workflows to augment generation with external context.</span>
+<span class="sd">    It automatically handles document loading, chunking, and indexing if no</span>
+<span class="sd">    existing index is found.</span>
+<span class="sd">    </span>
+<span class="sd">    The tool supports both similarity search and Maximal Marginal Relevance (MMR)</span>
+<span class="sd">    retrieval strategies, allowing for customization of result relevance vs.</span>
+<span class="sd">    diversity trade-offs.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Tool identifier used by CrewAI.</span>
+<span class="sd">    description : str</span>
+<span class="sd">        Human-readable description of the tool&#39;s functionality.</span>
+<span class="sd">    args_schema : Type[BaseModel]</span>
+<span class="sd">        Input validation schema (RagToolInput).</span>
+<span class="sd">    _retriever : Any</span>
+<span class="sd">        Private attribute storing the configured FAISS retriever.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; tool = RagTool(</span>
+<span class="sd">    ...     rag_path=Path(&quot;./my_rag_index&quot;),</span>
+<span class="sd">    ...     docs_path=Path(&quot;./my_documents&quot;),</span>
+<span class="sd">    ...     retriever_settings=RetrieverSettings(k=5)</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; result = tool._run(&quot;What features does the device have?&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Rag Tool&quot;</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;A tool for retrieving and generating information using RAG (Retrieval-Augmented Generation) techniques.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">args_schema</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseModel</span><span class="p">]</span> <span class="o">=</span> <span class="n">RagToolInput</span>
+
+    <span class="c1"># Define retriever as a private attribute</span>
+    <span class="n">_retriever</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="RagTool.__init__">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">embedding_model</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">rag_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./rsc/rag&quot;</span><span class="p">),</span>
+            <span class="n">docs_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./rsc/docs&quot;</span><span class="p">),</span>
+            <span class="n">retriever_settings</span><span class="p">:</span> <span class="n">RetrieverSettings</span> <span class="o">=</span> <span class="n">RetrieverSettings</span><span class="p">(),</span>
+            <span class="n">chunk_settings</span><span class="p">:</span> <span class="n">ChunkingSettings</span> <span class="o">=</span> <span class="n">ChunkingSettings</span><span class="p">()</span>
+        <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the RAG tool.</span>
+<span class="sd">        </span>
+<span class="sd">        Builds or loads a FAISS vector store from ``rag_path``. If a previously</span>
+<span class="sd">        saved index exists in ``rag_path``, it is loaded and a retriever is</span>
+<span class="sd">        configured. Otherwise, documents are loaded, chunked, and a new vector</span>
+<span class="sd">        store is created and saved.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        embedding_model : Any, optional</span>
+<span class="sd">            LangChain embedding model instance. If None, creates an Azure OpenAI</span>
+<span class="sd">            embeddings model using environment variables.</span>
+<span class="sd">        rag_path : pathlib.Path, default=Path(&quot;./rsc/rag&quot;)</span>
+<span class="sd">            Directory containing source documents or an existing FAISS index.</span>
+<span class="sd">            If the directory doesn&#39;t exist, it will be created.</span>
+<span class="sd">        docs_path : pathlib.Path, default=Path(&quot;./rsc/docs&quot;)</span>
+<span class="sd">            Directory containing source documents for indexing. Only used when</span>
+<span class="sd">            creating a new index.</span>
+<span class="sd">        retriever_settings : RetrieverSettings, optional</span>
+<span class="sd">            Retrieval configuration used when creating the retriever.</span>
+<span class="sd">            Defaults to RetrieverSettings().</span>
+<span class="sd">        chunk_settings : ChunkingSettings, optional</span>
+<span class="sd">            Chunking configuration for splitting documents before indexing.</span>
+<span class="sd">            Defaults to ChunkingSettings().</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The tool automatically detects existing FAISS indices (``index.faiss``</span>
+<span class="sd">        and ``index.pkl`` files) and loads them if available. Otherwise, it</span>
+<span class="sd">        processes documents from ``docs_path`` to create a new index.</span>
+<span class="sd">        </span>
+<span class="sd">        Environment variables required for Azure OpenAI embeddings:</span>
+<span class="sd">        - EMBEDDING_MODEL: Model name</span>
+<span class="sd">        - AZURE_API_BASE: API endpoint</span>
+<span class="sd">        - AZURE_API_KEY: API key</span>
+<span class="sd">        - AZURE_API_VERSION: API version</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; tool = RagTool(</span>
+<span class="sd">        ...     rag_path=Path(&quot;./custom_rag&quot;),</span>
+<span class="sd">        ...     retriever_settings=RetrieverSettings(search_type=&quot;mmr&quot;, k=3)</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Call parent constructor first</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        
+        <span class="c1"># Initialize embedding model if not provided</span>
+        <span class="k">if</span> <span class="n">embedding_model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">embedding_model</span> <span class="o">=</span> <span class="n">AzureOpenAIEmbeddings</span><span class="p">(</span>
+                <span class="n">model</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;EMBEDDING_MODEL&#39;</span><span class="p">),</span>
+                <span class="n">azure_endpoint</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;AZURE_API_BASE&#39;</span><span class="p">),</span>
+                <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;AZURE_API_KEY&#39;</span><span class="p">),</span>
+                <span class="n">openai_api_version</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;AZURE_API_VERSION&#39;</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="c1"># checks if in path there is already the rag</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rag_path</span> <span class="o">/</span> <span class="s2">&quot;index.faiss&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span><span class="n">rag_path</span> <span class="o">/</span> <span class="s2">&quot;index.pkl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RAG index already exists.&quot;</span><span class="p">)</span>
+            <span class="n">vector_store</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">load_local</span><span class="p">(</span>
+                <span class="n">rag_path</span><span class="p">,</span>
+                <span class="n">embedding_model</span><span class="p">,</span> 
+                <span class="n">allow_dangerous_deserialization</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+            <span class="n">retriever</span> <span class="o">=</span> <span class="n">vector_store</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span>
+                <span class="n">search_type</span><span class="o">=</span><span class="n">retriever_settings</span><span class="o">.</span><span class="n">search_type</span><span class="p">,</span>
+                <span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="n">retriever_settings</span><span class="o">.</span><span class="n">k</span><span class="p">,</span>
+                    <span class="s2">&quot;fetch_k&quot;</span><span class="p">:</span> <span class="n">retriever_settings</span><span class="o">.</span><span class="n">fetch_k</span><span class="p">,</span>
+                    <span class="s2">&quot;lambda_mult&quot;</span><span class="p">:</span> <span class="n">retriever_settings</span><span class="o">.</span><span class="n">mmr_lambda</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+            <span class="c1"># Store retriever as a private attribute</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_retriever</span> <span class="o">=</span> <span class="n">retriever</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">docs</span> <span class="o">=</span> <span class="n">load_docs</span><span class="p">(</span><span class="n">docs_path</span><span class="p">)</span>
+            <span class="n">chunks</span> <span class="o">=</span> <span class="n">chunk_docs</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="n">chunk_settings</span><span class="p">)</span>
+            <span class="n">vector_store</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span>
+                <span class="n">documents</span><span class="o">=</span><span class="n">chunks</span><span class="p">,</span>
+                <span class="n">embedding</span><span class="o">=</span><span class="n">embedding_model</span>
+            <span class="p">)</span>
+            <span class="c1"># save vector store into path</span>
+            <span class="n">vector_store</span><span class="o">.</span><span class="n">save_local</span><span class="p">(</span><span class="n">folder_path</span><span class="o">=</span><span class="n">rag_path</span><span class="p">)</span>
+            <span class="n">retriever</span> <span class="o">=</span> <span class="n">vector_store</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span>
+                <span class="n">search_type</span><span class="o">=</span><span class="n">retriever_settings</span><span class="o">.</span><span class="n">search_type</span><span class="p">,</span>
+                <span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="n">retriever_settings</span><span class="o">.</span><span class="n">k</span><span class="p">,</span>
+                    <span class="s2">&quot;fetch_k&quot;</span><span class="p">:</span> <span class="n">retriever_settings</span><span class="o">.</span><span class="n">fetch_k</span><span class="p">,</span>
+                    <span class="s2">&quot;lambda_mult&quot;</span><span class="p">:</span> <span class="n">retriever_settings</span><span class="o">.</span><span class="n">mmr_lambda</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+            <span class="c1"># Store retriever as a private attribute</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_retriever</span> <span class="o">=</span> <span class="n">retriever</span></div>
+
+
+<div class="viewcode-block" id="RagTool._run">
+<a class="viewcode-back" href="../../../../api/tools.html#src.qa_ai_agent.tools.custom_tool.RagTool._run">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run a retrieval query and return concatenated contents.</span>
+<span class="sd">        </span>
+<span class="sd">        This method is called by CrewAI when the tool is invoked. It uses</span>
+<span class="sd">        the configured FAISS retriever to find the most relevant document</span>
+<span class="sd">        chunks for the given query and returns them in a formatted string.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        query : str</span>
+<span class="sd">            Natural language query used to retrieve relevant chunks.</span>
+<span class="sd">            Should be a clear, specific question or search term.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Concatenation of the retrieved documents&#39; ``page_content``,</span>
+<span class="sd">            separated by blank lines. Each chunk is prefixed with its</span>
+<span class="sd">            source information for traceability.</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; tool = RagTool()</span>
+<span class="sd">        &gt;&gt;&gt; result = tool._run(&quot;What is the screen resolution?&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(result[:100])</span>
+<span class="sd">        [Source: ./rsc/docs/specs.txt]</span>
+<span class="sd">        The device features a 6.1-inch display with...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">best_chunks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="c1"># Process the best_chunks to generate a response including the source</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;[Source: </span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">]</span><span class="se">\n</span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">page_content</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">best_chunks</span><span class="p">]</span>
+        <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Nico Resta &amp; Tommaso Lippolis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

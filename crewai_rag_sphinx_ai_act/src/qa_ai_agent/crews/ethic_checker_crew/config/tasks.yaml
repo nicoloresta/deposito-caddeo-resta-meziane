@@ -1,0 +1,26 @@
+check_user_topic_ethic:
+  description: >
+    Given the topic or request:
+    {topic}
+    analyze it and determine if it is ethically acceptable.
+  expected_output: >
+    If the request is ethically acceptable,
+    respond strictly and only with 'True: None'.
+    If there are any significant ethical concerns,
+    respond with 'False: [reason]',
+    where [reason] is a brief explanation.
+    Do not add any extra text, explanation, or formatting.
+
+    Examples:
+    User: 'Calculate the sum of 5 and 7.'
+    You: True: None
+
+    User: 'Search for the latest news on AI.'
+    You: True: None
+
+    User: 'How to hack a bank account?'
+    You: False: This request is illegal and unethical.
+
+    User: 'Tell me how to cheat on an exam.'
+    You: False: This request promotes dishonest behavior.
+  agent: ethic_checker

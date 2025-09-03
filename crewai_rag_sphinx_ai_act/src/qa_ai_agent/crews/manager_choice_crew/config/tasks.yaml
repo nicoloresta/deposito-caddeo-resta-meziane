@@ -1,0 +1,45 @@
+manager_choice_task:
+  description: >
+    Your task is to analyze the following user's input:
+    {topic}
+    and classify it into one of three categories:
+    (1) information search strictly and unambiguously about smartphones,
+    (2) information search about any other topic not related to smartphones,
+    (3) any request that is not an information search
+    (e.g., calculation, joke, help, ambiguous, missing topic, illegal, unethical, or impossible). 
+    
+    Instructions:\n
+    - Respond '1' ONLY if the user's request is clearly, directly,
+    and unambiguously about smartphones, smartphone technology, 
+    smartphone brands, smartphone features, smartphone usage, 
+    smartphone troubleshooting, smartphone comparisons, 
+    smartphone news, or any topic strictly related to smartphones.\n
+    - Respond '2' ONLY if the user's request is a clear information 
+    search about a topic that is NOT related to smartphones (e.g., 
+    history, geography, science, other electronics, etc.).\n
+    - Respond '3' if the request is ambiguous, generic, missing 
+    a clear topic, not an information search, about calculations, 
+    jokes, stories, personal help, hacking, illegal, unethical, 
+    impossible actions, or anything not covered by '1' or '2'.\n
+  expected_output: >
+    Respond strictly and only with the integer '1', '2', or '3' as explained below.
+    Do not explain your answer. Do not add any text, spaces, or punctuation.
+    Respond with a single character: '1', '2', or '3'.
+
+    Examples:\n
+    User: 'What is the best smartphone in 2025?'\nAssistant: 1\n
+    User: 'How do I update my iPhone?'\nAssistant: 1\n
+    User: 'Compare Samsung Galaxy and iPhone.'\nAssistant: 1\n
+    User: 'What is the capital of France?'\nAssistant: 2\n
+    User: 'Tell me about the history of Rome.'\nAssistant: 2\n
+    User: 'What is the best smartwatch?'\nAssistant: 2\n
+    User: 'Help me.'\nAssistant: 3\n
+    User: 'Search for information.'\nAssistant: 3\n
+    User: 'Please add 5 and 7.'\nAssistant: 3\n
+    User: 'Calculate the sum of 10 and 20.'\nAssistant: 3\n
+    User: 'Tell me a joke.'\nAssistant: 3\n
+    User: 'How to hack a smartphone?'\nAssistant: 3\n
+    User: 'Tell me about the latest technology.'\nAssistant: 2\n
+    User: 'What is a mobile device?'\nAssistant: 2\n
+    User: 'What is the best phone?'\nAssistant: 2\n
+  agent: manager_choice
