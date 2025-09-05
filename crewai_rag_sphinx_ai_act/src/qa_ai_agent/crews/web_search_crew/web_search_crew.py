@@ -25,7 +25,9 @@ from typing import List
 from crewai import Agent, Crew, Process, Task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import SerperDevTool
+# from crewai_tools import SerperDevTool
+from mcp import StdioServerParameters
+import os
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -60,6 +62,19 @@ class WebSearchCrew:
 
     agents: List[BaseAgent]
     tasks: List[Task]
+
+    mcp_server_params = [
+        StdioServerParameters(
+            command="docker",
+            args=[
+                "run",
+                "-i",
+                "--rm",
+                "mcp/duckduckgo"
+            ],
+            # env={**os.environ}  # inherit your current environment
+        )
+    ]
 
     @agent
     def web_prompt_rewriter(self) -> Agent:
@@ -108,7 +123,8 @@ class WebSearchCrew:
         return Agent(
             config=self.agents_config["web_searcher"],
             verbose=True,
-            tools=[SerperDevTool(n_results=3)],
+            # tools=[SerperDevTool(n_results=3)],
+            tools=self.get_mcp_tools()
         )
 
     @task

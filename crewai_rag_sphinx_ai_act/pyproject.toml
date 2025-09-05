@@ -5,8 +5,10 @@ description = "qa_ai_agent using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
+    "crewai-tools[mcp]>=0.65.0",
     "crewai[tools]>=0.165.1,<1.0.0",
     "faiss-cpu>=1.12.0",
+    "mlflow>=3.3.2",
     "qdrant-client>=1.15.1",
     "ragas>=0.3.2",
 ]

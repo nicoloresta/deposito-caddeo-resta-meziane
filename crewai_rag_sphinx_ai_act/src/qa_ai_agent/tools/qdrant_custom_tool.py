@@ -52,13 +52,16 @@ from qdrant_client.http.models import (Distance, FieldCondition, Filter,
                                        PointStruct, ScalarQuantization,
                                        ScalarQuantizationConfig, SearchParams,
                                        VectorParams)
+import numpy as np
+from langchain_openai import AzureOpenAIEmbeddings as LangchainAzureOpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings as LangchainHFEmbeddings
 
 load_dotenv()
 
 @dataclass
 class QdrantSettings:
     qdrant_url: str = "localhost:6333"
-    collection: str = "rag_chunks"  
+    collection: str = "rag_chunks"
 
 @dataclass
 class ChunkingSettings:
@@ -337,11 +340,6 @@ def chunk_docs(docs: List[Document], settings: ChunkingSettings):
     >>> chunks[0].page_content
     'First chunk content...'
     """
-    # text_splitter = RecursiveCharacterTextSplitter(
-    #     chunk_size=settings.chunk_size,
-    #     chunk_overlap=settings.chunk_overlap,
-    #     separators=["\n\n", "\n", ". ", "? ", "! ", "; ", ": ", ", ", " ", "", "---"],
-    # )
 
     chunks = []
 
@@ -377,7 +375,6 @@ class EmbeddingModel:
 class AzureOpenAIEmbeddings(EmbeddingModel):
 
     def __init__(self, model: str, azure_endpoint: str, api_key: str, openai_api_version: str):
-        from langchain_openai import AzureOpenAIEmbeddings as LangchainAzureOpenAIEmbeddings
         self._client = LangchainAzureOpenAIEmbeddings(
             model=model,
             azure_endpoint=azure_endpoint,
@@ -397,7 +394,6 @@ class AzureOpenAIEmbeddings(EmbeddingModel):
 class HFEmbeddings(EmbeddingModel):
 
     def __init__(self, model_name: str):
-        from langchain_community.embeddings import HuggingFaceEmbeddings as LangchainHFEmbeddings
         self._client = LangchainHFEmbeddings(model_name=model_name)
 
     def get_sentence_embedding_dimension(self) -> int:
@@ -784,7 +780,6 @@ class RagTool(BaseTool):
             - Parallel processing for large candidate sets
             - Early termination for very low diversity scores
         """
-        import numpy as np
         V = np.array(candidates_vecs, dtype=float)
         q = np.array(query_vec, dtype=float)
 
@@ -1071,8 +1066,8 @@ class RagTool(BaseTool):
         
         docs = load_docs(docs_path)
         chunks = chunk_docs(docs, chunk_settings)
-        print(f"Chunks:\n{chunks}")
-        input('> ')
+        # print(f"Chunks:\n{chunks}")
+        # input('> ')
         vector_size = self.embedding_model.get_sentence_embedding_dimension()
         self.__recreate_collection_for_rag(qdrant_settings.collection, vector_size)
         vecs = self.embedding_model.embed_documents([c.page_content for c in chunks])
